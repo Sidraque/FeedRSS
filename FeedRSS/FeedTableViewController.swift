@@ -78,16 +78,19 @@ class FeedTableViewController: UITableViewController, MWFeedParserDelegate{
         // Configure the cell...
         
         let item = feedItems[indexPath.row] as MWFeedItem
+        
         cell.textLabel?.text = item.title
 
         return cell
     }
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = feedItems[indexPath.row] as MWFeedItem
         
         let webBrowser = KINWebBrowserViewController()
         let url = URL(string: item.link)
+    
         
         webBrowser.load(url)
         
